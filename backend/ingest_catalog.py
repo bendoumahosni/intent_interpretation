@@ -12,7 +12,7 @@ import unicodedata
 
 load_dotenv()
 
-# Modèle d'embedding local (gratuit et excellent)
+# Modèle d'embedding local 
 embedder = SentenceTransformer('all-MiniLM-L6-v2')
 
 # Initialisation du client Pinecone
@@ -20,7 +20,7 @@ pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
 
 index_name = os.getenv("PINECONE_INDEX_NAME", "telecom-catalog11")
 
-# Path absolu sécurisé
+# Path absolu 
 CATALOG_DIR = Path(__file__).parent / "catalog1"
 
 # Vérification de l'existence du dossier
