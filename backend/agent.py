@@ -216,7 +216,7 @@ RÈGLES CRITIQUES :
 - Format : liste de noms techniques précis
 
 IMPORTANT : Si l'utilisateur a déjà un slice 5G validé, ne propose pas un autre slice.
-Si un service de notification est validé, ne propose pas un autre service de notification similaire.
+Si un service de est validé, ne propose pas un autre service similaire.
 """
 )
 
@@ -410,8 +410,7 @@ async def handle_clarification_with_merge(
 ) -> Decomposition:
     """
     Gère la clarification en proposant UNIQUEMENT de nouveaux services.
-    
-    ✅ CORRECTION : Filtrage strict des services déjà validés.
+  
     """
     targeted_request = f"""
 CONTEXTE :
@@ -449,8 +448,7 @@ async def recommend_alternatives(
 ) -> List[str]:
     """
     Phase 4 : Recommandation d'alternatives.
-    
-    ✅ CORRECTION : Prend en compte les services validés.
+
     """
     context = f"""
 Services DÉJÀ VALIDÉS (ne pas reproposer de services similaires) :
