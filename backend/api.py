@@ -77,7 +77,6 @@ class ClarificationRequest(BaseModel):
     services_valides_noms: List[str]
     services_refuses: List[str]
     original_request: str
-    # ✅ NOUVEAU : on passe aussi les données déjà validées pour les fusionner
     services_valides_data: Optional[Dict[str, Dict[str, Any]]] = Field(
         default=None,
         description="Données complètes des services déjà validés (ServiceCandidate)"
@@ -195,11 +194,6 @@ async def clarify(request: ClarificationRequest):
     Gérer la clarification utilisateur et retourner la liste FUSIONNÉE :
     services déjà validés + nouveaux services issus de la clarification.
     
-    ✅ CORRECTION PRINCIPALE :
-    - Les services déjà validés sont conservés tels quels dans la réponse.
-    - Les nouveaux services issus de la clarification sont ajoutés.
-    - Les services refusés sont remplacés.
-    - Le frontend n'a plus besoin de gérer cette fusion côté client.
     """
     try:
         # 1. Obtenir les nouveaux services depuis la clarification
@@ -213,7 +207,7 @@ async def clarify(request: ClarificationRequest):
         # 2. Recherche des candidats pour les NOUVEAUX services uniquement
         new_candidates = await search_candidates_for_services(new_decomposition)
         
-        # 3. ✅ FUSION : reconstruire la liste complète des services identifiés
+        # 3. FUSION : reconstruire la liste complète des services identifiés
         #    = services précédents validés + nouveaux services de la clarification
         merged_services_identifies = []
         merged_candidates = {}
