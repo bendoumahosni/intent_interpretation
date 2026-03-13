@@ -1,65 +1,66 @@
 # intent_interpretation
 A repository for an interpretation application based on agentic AI that translates a user intent expressed in natural language (NL) into a structured TMF921 request
+
 # 🤖 Agent Intent TMF921 - API Architecture
-## Composants
+
+## Components
 
 1. **Frontend (React + Vite)**
-   - Interface utilisateur 
-   - Communication avec le backend via API REST
+   - User interface
+   - Communication with the backend via REST API
 
 2. **Backend (FastAPI + Python)**
-   - API REST pour toutes les opérations
-   - Orchestration des agents IA (GPT-4o, Claude)
-   - Recherche sémantique via Pinecone
-   - Génération des Intents TMF921( les modeles de l'API Groq)
+   - REST API for all operations
+   - Orchestration of AI agents (GPT-4o, Claude)
+   - Semantic search using Pinecone
+   - Generation of TMF921 Intents (using Groq API models)
 
 3. **Data Layer**
-   - **Pinecone** : Base de données vectorielle pour la recherche sémantique
+   - **Pinecone**: Vector database for semantic search
 
-##  Technologies utilisées
+## Technologies Used
 
 ### Backend
-- **FastAPI** : Framework web Python
-- **Pydantic AI** : Framework pour agents IA
-- **OpenAI GPT-4o** : Modèle de langage pour classification et reformulation
-- **Anthropic Claude Sonnet 4.5** : Modèle de langage pour décomposition
-- **Pinecone** : Base de données vectorielle
-- **Sentence Transformers** : Embeddings sémantiques
-- **Groq** : modele  pour le mapping des propriétés
+- **FastAPI**: Python web framework
+- **Pydantic AI**: Framework for AI agents
+- **OpenAI GPT-4o**: Language model for classification and reformulation
+- **Anthropic Claude Sonnet 4.5**: Language model for decomposition
+- **Pinecone**: Vector database
+- **Sentence Transformers**: Semantic embeddings
+- **Groq**: Model used for property mapping
 
 ### Frontend
-- **React 18** : Bibliothèque UI
-- **Vite** : Build tool moderne
-- **Material-UI (MUI)** : Composants UI
-- **Emotion** : CSS-in-JS
+- **React 18**: UI library
+- **Vite**: Modern build tool
+- **Material-UI (MUI)**: UI components
+- **Emotion**: CSS-in-JS
 
-##  Installation
+## Installation
 
-# 1. Créer l'environnement
+# 1. Create the environment
 conda create -n agent-intent python=3.10 -y
 conda activate agent-intent
 
-# 2. Installer les dépendances
+# 2. Install dependencies
 pip install -r requirements.txt
 
 
-##  Configuration
+## Configuration
 
-### Fichier `.env`  :  ajouter les keys des APIs  
+### `.env` file: add the API keys
 
-##  Structure des fichiers backend
-
-```
+## Backend File Structure
 backend/
-├── api.py                      # API REST FastAPI 
-├── agent.py                    # Logique métier
-├── ingest_catalog.py           # recherche vectorielle (pinecone) 
-├── requirements.txt            # Dépendances
-├── .env.example               # Template configuration
-├── .env                       # Configuration réelle (à créer)
-└── catalog/                   # Catalogue TMF633 (JSON)
+├── api.py # FastAPI REST API
+├── agent.py # Business logic
+├── ingest_catalog.py # Vector search (Pinecone)
+├── requirements.txt # Dependencies
+├── .env.example # Configuration template
+├── .env # Actual configuration (to create)
+└── catalog/ # TMF633 Catalog (JSON)
 
-## Lancement 
 
-### Avec Uvicorn 
-uvicorn api:app --port 8000  --reload
+## Run
+
+### Using Uvicorn
+uvicorn api:app --port 8000 --reload
