@@ -36,7 +36,6 @@ A repository for an interpretation application based on agentic AI that translat
 - **Emotion**: CSS-in-JS
 
 ## Installation
-
 # 1. Create the environment
 conda create -n agent-intent python=3.10 -y
 conda activate agent-intent
@@ -44,23 +43,9 @@ conda activate agent-intent
 # 2. Install dependencies
 pip install -r requirements.txt
 
-
 ## Configuration
-
 ### `.env` file: add the API keys
 
-## Backend File Structure
-backend/
-├── api.py # FastAPI REST API
-├── agent.py # Business logic
-├── ingest_catalog.py # Vector search (Pinecone)
-├── requirements.txt # Dependencies
-├── .env.example # Configuration template
-├── .env # Actual configuration (to create)
-└── catalog/ # TMF633 Catalog (JSON)
-
-
 ## Run
-
 ### Using Uvicorn
 uvicorn api:app --port 8000 --reload
